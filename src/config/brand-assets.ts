@@ -1,7 +1,7 @@
-/** Replace these paths with approved Easy Eyes imagery. All current media is a labelled design placeholder. */
+/** Supplied editorial imagery; product media remains in Supabase Storage. */
 export const brandAssets = {
   heroVideo: null as string | null,
-  heroPoster: '/assets/brand/frame-study.svg',
+  heroPoster: '/assets/models/look-01.png',
   campaignPrimary: null as string | null,
   campaignSecondary: null as string | null,
   productFallback: '/assets/brand/frame-study.svg',

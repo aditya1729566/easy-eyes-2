@@ -1,10 +1,20 @@
 'use client';
 
-import { Pause, Play } from 'lucide-react';
+import Link from 'next/link';
+import { ArrowUpRight, Pause, Play } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { filmSources } from '@/config/editorial-looks';
 
-export function HeroFilms() {
+type HeroFilmsProps = {
+  campaign: {
+    title: string;
+    subtitle: string;
+    cta_href: string | null;
+    cta_label: string | null;
+  } | null;
+};
+
+export function HeroFilms({ campaign }: HeroFilmsProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const videosRef = useRef<(HTMLVideoElement | null)[]>([]);
   const activeRef = useRef(0);
@@ -114,7 +124,7 @@ export function HeroFilms() {
     if (!next) videosRef.current.forEach(video => video?.pause());
   };
 
-  return (
+  return <>
     <div className="hero-media" ref={containerRef}>
       {filmSources.map((source, index) => (
         <video
@@ -129,9 +139,14 @@ export function HeroFilms() {
           aria-hidden="true"
         />
       ))}
-      <div className="hero-scrim" />
-      <div className="hero-film-controls" aria-label="Campaign films">
-        <span>Campaign films</span>
+    </div>
+    <div className="hero-film-controls" role="group" aria-label="Campaign films">
+      <div className="hero-rail-copy">
+        <span className="eyebrow">{campaign?.title || 'Easy Eyes / Film series'}</span>
+        <h1 id="hero-title">Look closer<span>.</span></h1>
+      </div>
+      <div className="hero-film-switcher">
+        <span>Select a film</span>
         {filmSources.map((_, index) => (
           <button
             type="button"
@@ -143,9 +158,13 @@ export function HeroFilms() {
           >{String(index + 1).padStart(2, '0')}</button>
         ))}
         <button type="button" className="hero-film-toggle" onClick={togglePlayback} aria-label={playing ? 'Pause films' : 'Play films'}>
-          {playing ? <Pause size={15} /> : <Play size={15} />}
+          {playing ? <Pause size={17} /> : <Play size={17} />}
         </button>
       </div>
+      <div className="hero-rail-action">
+        <p>{campaign?.subtitle || 'A new point of view, in motion.'}</p>
+        <Link href={campaign?.cta_href || '#the-looks'} className="line-link">{campaign?.cta_label || 'Explore the looks'} <ArrowUpRight size={18} /></Link>
+      </div>
     </div>
-  );
+  </>;
 }

@@ -5,6 +5,17 @@ test('hero films play in order and can be selected manually',async({page})=>{
   await page.goto('/');
   await expect(page.locator('.hero-film')).toHaveCount(4);
   await expect(page.locator('.hero-media img')).toHaveCount(0);
+  await expect(page.locator('.hero-media').locator('div')).toHaveCount(0);
+  await page.waitForFunction(()=>getComputedStyle(document.querySelector('.hero-film-controls')!).position==='relative');
+  const layout=await page.evaluate(()=>{
+    const header=document.querySelector('.site-header')!.getBoundingClientRect();
+    const media=document.querySelector('.hero-media')!.getBoundingClientRect();
+    const controls=document.querySelector('.hero-film-controls')!.getBoundingClientRect();
+    return {headerBottom:header.bottom,mediaTop:media.top,mediaBottom:media.bottom,controlsTop:controls.top,viewportHeight:innerHeight};
+  });
+  expect(layout.mediaTop).toBeGreaterThanOrEqual(layout.headerBottom-1);
+  expect(layout.mediaBottom).toBeLessThanOrEqual(layout.viewportHeight*.8+2);
+  expect(layout.controlsTop).toBeGreaterThanOrEqual(layout.mediaBottom-1);
   await expect(page.locator('.hero-film.is-active')).toHaveAttribute('src','/assets/campaign/film-01.mp4');
   await expect(page.locator('.hero-film').first()).toHaveJSProperty('paused',false);
   await page.evaluate(()=>{

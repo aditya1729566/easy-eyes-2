@@ -1,0 +1,1 @@
+import {redirect} from 'next/navigation';import {configured} from '@/lib/supabase';import {currentUser} from '@/lib/auth';import {CheckoutForm} from '@/components/checkout-form';export default async function Checkout(){if(!configured)redirect('/cart');const user=await currentUser();if(!user)redirect('/login?next=/checkout');return <CheckoutForm email={user.email||''}/>}

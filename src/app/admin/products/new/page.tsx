@@ -1,0 +1,1 @@
+import {AdminProductForm} from '@/components/admin-product-form';export default function NewProduct(){return <><p className="eyebrow">Merchandising</p><h1 className="page-title">New product</h1><AdminProductForm/></>}

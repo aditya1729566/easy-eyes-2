@@ -1,0 +1,1 @@
+export default function Terms(){return <div className="page-shell"><p className="eyebrow">Policy draft</p><h1 className="page-title">Terms.</h1><p className="support-copy">Final terms of sale must be reviewed and published before launch. Online payment collection is not available in this release.</p></div>}

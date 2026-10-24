@@ -1,0 +1,1 @@
+import {ResetPasswordForm} from '@/components/reset-password-form';export default function ResetPassword(){return <div className="page-shell"><p className="eyebrow">Your account</p><h1 className="page-title">New password.</h1><ResetPasswordForm/></div>}

@@ -1,0 +1,1 @@
+import {ContactForm} from '@/components/contact-form';export default function Contact(){return <div className="page-shell"><p className="eyebrow">Easy Eyes / Support</p><h1 className="page-title">Get in touch.</h1><ContactForm/></div>}

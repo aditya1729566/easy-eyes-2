@@ -1,0 +1,1 @@
+export default function Returns(){return <div className="page-shell"><p className="eyebrow">Support</p><h1 className="page-title">Returns.</h1><p className="support-copy">The final return policy has not been published. Please contact Easy Eyes before submitting an order request if you need return information.</p></div>}

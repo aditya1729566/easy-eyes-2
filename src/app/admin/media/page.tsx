@@ -1,0 +1,1 @@
+import {AdminMediaForm} from '@/components/admin-media-form';export default function Media(){return <><p className="eyebrow">Merchandising</p><h1 className="page-title">Media library</h1><p>Upload approved Easy Eyes files. Assign the returned path in the product or campaign record.</p><AdminMediaForm/></>}

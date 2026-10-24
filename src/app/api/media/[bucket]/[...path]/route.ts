@@ -1,0 +1,3 @@
+import {NextRequest} from 'next/server';
+import {configured,serverDb} from '@/lib/supabase';
+export async function GET(_:NextRequest,{params}:{params:Promise<{bucket:string;path:string[]}>}){if(!configured)return new Response('Media unavailable',{status:503});const {bucket,path}=await params;if(!['catalog','campaigns'].includes(bucket)||!path.length)return new Response('Not found',{status:404});const db=await serverDb();const {data,error}=await db.storage.from(bucket).download(path.join('/'));if(error||!data)return new Response('Not found',{status:404});return new Response(data,{headers:{'Content-Type':data.type||'application/octet-stream','Cache-Control':'public, max-age=300'}})}

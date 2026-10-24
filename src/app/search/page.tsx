@@ -1,0 +1,1 @@
+import type { Metadata } from 'next';import {CatalogList} from '@/components/catalog-list';export const metadata:Metadata={title:'Search'};export default function Search({searchParams}:{searchParams:Promise<Record<string,string|string[]|undefined>>}){return <CatalogList title="Find a frame" searchParams={searchParams}/>}

@@ -3,16 +3,27 @@ test('editorial storefront and model gallery',async({page})=>{await page.goto('/
 test('mobile menu remains operable',async({page})=>{await page.setViewportSize({width:375,height:812});await page.goto('/');await page.getByRole('button',{name:'Open menu'}).click();await expect(page.getByRole('navigation',{name:'Mobile navigation'})).toBeVisible();await page.getByRole('navigation',{name:'Mobile navigation'}).getByRole('link',{name:'Collections'}).click();await expect(page).toHaveURL(/\/collections/)});
 test('hero films play in order and can be selected manually',async({page})=>{
   await page.goto('/');
+  await expect(page.locator('.hero-film')).toHaveCount(4);
+  await expect(page.locator('.hero-media img')).toHaveCount(0);
   await expect(page.locator('.hero-film.is-active')).toHaveAttribute('src','/assets/campaign/film-01.mp4');
   await expect(page.locator('.hero-film').first()).toHaveJSProperty('paused',false);
+  await page.evaluate(()=>{
+    const media=document.querySelector('.hero-media')!;
+    new MutationObserver(()=>{
+      const outgoing=media.querySelector<HTMLVideoElement>('.hero-film.is-outgoing');
+      const active=media.querySelector<HTMLVideoElement>('.hero-film.is-active');
+      if(outgoing?.getAttribute('src')==='/assets/campaign/film-01.mp4' && active?.getAttribute('src')==='/assets/campaign/film-02.mp4' && getComputedStyle(outgoing).opacity==='1') document.documentElement.dataset.coveredHandoff='yes';
+    }).observe(media,{subtree:true,attributes:true,attributeFilter:['class']});
+  });
   await page.locator('.hero-film').first().evaluate(video=>video.dispatchEvent(new Event('ended')));
   await expect(page.locator('.hero-film.is-active')).toHaveAttribute('src','/assets/campaign/film-02.mp4');
-  await page.getByRole('button',{name:'Play film 3'}).click();
-  await expect(page.locator('.hero-film.is-active')).toHaveAttribute('src','/assets/campaign/film-03.mp4');
+  await expect(page.locator('html')).toHaveAttribute('data-covered-handoff','yes');
+  await page.getByRole('button',{name:'Play film 4'}).click();
+  await expect(page.locator('.hero-film.is-active')).toHaveAttribute('src','/assets/campaign/film-04.mp4');
   await page.getByRole('button',{name:'Pause films'}).click();
-  await expect(page.locator('.hero-film').nth(2)).toHaveJSProperty('paused',true);
+  await expect(page.locator('.hero-film').nth(3)).toHaveJSProperty('paused',true);
   await page.getByRole('button',{name:'Play films'}).click();
-  await expect(page.locator('.hero-film').nth(2)).toHaveJSProperty('paused',false);
+  await expect(page.locator('.hero-film').nth(3)).toHaveJSProperty('paused',false);
 });
 test('gallery advances through models in perspective',async({page})=>{
   await page.goto('/');

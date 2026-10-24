@@ -17,4 +17,5 @@ export const filmSources = [
   '/assets/campaign/film-01.mp4',
   '/assets/campaign/film-02.mp4',
   '/assets/campaign/film-03.mp4',
+  '/assets/campaign/film-04.mp4',
 ] as const;

@@ -10,14 +10,14 @@ The application builds and runs locally. A Supabase project is connected, schema
 
 1. `npm install`
 2. Copy `.env.example` to `.env.local` and fill the Supabase URL, publishable key and **server-only** secret key. Never prefix the secret key with `NEXT_PUBLIC_`. This checkout already contains the project URL and publishable key in its gitignored `.env.local`.
-3. On a new Supabase project, apply SQL files in `supabase/migrations/` in order through the Supabase CLI or SQL editor. All three migrations are already applied to the connected Easy Eyes project. Optionally apply `supabase/seed.sql` for a demonstration category and collection.
+3. On a new Supabase project, apply SQL files in `supabase/migrations/` in order through the Supabase CLI or SQL editor. All four migrations are already applied to the connected Easy Eyes project. Optionally apply `supabase/seed.sql` for clearly labelled draft merchandise.
 4. Configure Supabase Auth site URL and redirect URLs for `http://localhost:3000/auth/callback` and the production domain.
-5. Set `CRON_SECRET` to a random secret of at least 16 characters. Set `NEXT_PUBLIC_SITE_URL` and `STORE_SUPPORT_EMAIL`.
+5. Set `NEXT_PUBLIC_SITE_URL` and `STORE_SUPPORT_EMAIL`. Keep `NEXT_PUBLIC_SITE_READY=false` until final content and policy review. `CRON_SECRET` protects the optional manual expiry endpoint; the scheduled job runs inside Supabase.
 6. `npm run dev`; open `http://localhost:3000`.
 
 Commands: `npm run lint`, `npm run typecheck`, `npm run test`, `npm run build`, `npm run test:e2e`.
 
-The checkout reserves stock for 24 hours and records `payment_status=not_collected`. The hourly cron releases expired unconfirmed holds. No payment gateway or card collection is present.
+The checkout reserves stock for 24 hours and records `payment_status=not_collected`. A Supabase Cron job runs hourly to release expired unconfirmed holds. No payment gateway or card collection is present.
 
 ## Documentation
 

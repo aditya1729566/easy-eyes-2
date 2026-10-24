@@ -75,7 +75,10 @@ body { background: var(--chalk); color: var(--ink); font-size: 16px; }
 ::selection { background: #adbeff; color: #172839; }
 a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible { outline-color: var(--blue); }
 .skip { background: var(--paper); color: var(--ink); }
-.site-header, .site-header.on-home { position: relative; width: 100%; background: var(--paper); color: var(--ink); border-bottom: 1px solid var(--line); }
+.site-header { position: relative; width: 100%; background: var(--paper); color: var(--ink); border-bottom: 1px solid var(--line); }
+.site-header.on-home { position: absolute; inset: 0 0 auto; z-index: 30; background: transparent; color: #000; border: 0; box-shadow: none; backdrop-filter: none; text-shadow: 0 1px 4px #fff9; }
+.site-header.on-home .nav-actions svg { filter: drop-shadow(0 1px 3px #fffc); }
+.site-header.on-home .nav-primary a:hover, .site-header.on-home .nav-actions a:hover { color: #000; opacity: .65; }
 .wordmark, .footer-mark { font-family: var(--font-ui), Arial, sans-serif; font-size: clamp(21px, 2vw, 29px); font-weight: 800; letter-spacing: -.055em; word-spacing: .08em; }
 .mark-dot, .footer-mark span { color: var(--blue); }
 .nav-primary a { font-size: 11px; font-weight: 700; letter-spacing: .1em; }
@@ -85,7 +88,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 /* The film remains unobstructed; its caption and playback controls live below it. */
 .hero { height: auto; min-height: 0; overflow: visible; background: var(--paper); color: var(--ink); }
-.hero-media { position: relative; inset: auto; z-index: 0; width: 100%; height: calc(80svh - var(--header)); min-height: 360px; overflow: hidden; isolation: isolate; background: #d5dddd; }
+.hero-media { position: relative; inset: auto; z-index: 0; width: 100%; height: 80svh; min-height: 0; overflow: hidden; isolation: isolate; background: #d5dddd; }
 .hero-media > .hero-film { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; opacity: 0; transform: scale(1.025); transition: opacity .75s ease, transform 8s linear; }
 .hero-media > .hero-film.is-outgoing { z-index: 1; opacity: 1; transform: scale(1); }
 .hero-media > .hero-film.is-active { z-index: 2; opacity: 1; transform: scale(1); }
@@ -159,7 +162,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .model-gallery-heading h2 { font-size: clamp(58px, 8vw, 82px); }
 }
 @media (max-width: 650px) {
-  .hero-media { min-height: 340px; }
+  .hero-media { min-height: 0; }
   .hero-film-controls { grid-template-columns: 1fr auto; grid-template-rows: auto auto; gap: 10px; min-height: 150px; height: 20svh; padding: 15px 20px; }
   .hero-rail-copy .eyebrow { font-size: 9px; margin-bottom: 4px; }
   .hero-rail-copy h1 { font-size: 26px; }

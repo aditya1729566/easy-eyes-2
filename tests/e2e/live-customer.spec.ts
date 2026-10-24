@@ -1,4 +1,5 @@
 import { randomBytes, randomUUID } from 'node:crypto';
+import { readFileSync } from 'node:fs';
 import { loadEnvConfig } from '@next/env';
 import { createClient } from '@supabase/supabase-js';
 import { expect, test } from '@playwright/test';
@@ -71,5 +72,63 @@ test('customer can sign in, save a frame, submit an unpaid order and see it in h
     }
     if(variantId)await db.from('product_variants').delete().eq('id',variantId);
     if(productId)await db.from('products').delete().eq('id',productId);
+  }
+});
+
+test('admin can create a draft frame, add stock, and attach an uploaded image',async({page})=>{
+  test.skip(!process.env.EASY_EYES_ADMIN_QA_FILE,'Requires a temporary admin account prepared by the QA operator');
+  const db=createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!,process.env.SUPABASE_SECRET_KEY||process.env.SUPABASE_SERVICE_ROLE_KEY!,{auth:{persistSession:false,autoRefreshToken:false}});
+  const suffix=randomUUID().slice(0,8);
+  const {email,password,userId}=JSON.parse(readFileSync(process.env.EASY_EYES_ADMIN_QA_FILE!,'utf8')) as {email:string;password:string;userId:string};
+  const slug=`qa-admin-${suffix}`;
+  const sku=`QA-ADMIN-${suffix.toUpperCase()}`;
+  let productId:string|undefined;
+  let mediaPath:string|undefined;
+  try{
+    await page.goto('/login');
+    await page.getByRole('textbox',{name:'Email'}).fill(email);
+    await page.getByLabel('Password').fill(password);
+    await page.getByRole('button',{name:'Sign in'}).click();
+    await expect(page).toHaveURL(/\/account$/);
+    await page.goto('/admin/products/new');
+    await expect(page.getByRole('heading',{name:'New product'})).toBeVisible();
+    await page.getByLabel('URL slug').fill(slug);
+    await page.getByLabel('Name',{exact:true}).fill('QA Admin Frame');
+    await page.getByLabel('Base price in INR').fill('725');
+    await page.getByLabel('Description').fill('Temporary draft for admin workflow verification.');
+    await page.getByRole('button',{name:'Save product'}).click();
+    await expect(page).toHaveURL(/\/admin\/products\/[0-9a-f-]+\/edit$/);
+    const product=await db.from('products').select('id').eq('slug',slug).single();
+    if(product.error||!product.data)throw product.error||new Error('QA admin product was not created');
+    productId=product.data.id;
+    await page.getByLabel('SKU').fill(sku);
+    await page.getByLabel('Frame colour').fill('Ink');
+    await page.getByLabel('Lens colour').fill('Clear');
+    await page.getByLabel('Price in INR',{exact:true}).fill('725');
+    await page.getByLabel('Stock quantity').fill('3');
+    await page.getByRole('button',{name:'Add variant'}).click();
+    await expect(page.getByText('Variant added.')).toBeVisible();
+
+    await page.goto('/admin/media');
+    await page.getByLabel('Image or campaign video').setInputFiles({name:'qa-pixel.png',mimeType:'image/png',buffer:Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+tmO8AAAAASUVORK5CYII=','base64')});
+    await page.getByRole('button',{name:'Upload media'}).click();
+    const status=page.getByRole('status');
+    await expect(status).toContainText('Uploaded: ');
+    mediaPath=(await status.innerText()).replace('Uploaded: ','').trim();
+    await page.goto(`/admin/products/${productId}/edit`);
+    await page.getByLabel('Catalog media path').fill(mediaPath);
+    await page.getByLabel('Image description').fill('Temporary one pixel QA image');
+    await page.getByRole('button',{name:'Attach image'}).click();
+    await expect(page.getByText('Image attached.')).toBeVisible();
+    const image=await db.from('product_images').select('id').eq('product_id',productId).eq('storage_path',mediaPath).single();
+    if(image.error||!image.data)throw image.error||new Error('QA media was not attached');
+  }finally{
+    if(productId){
+      await db.from('product_images').delete().eq('product_id',productId);
+      await db.from('product_variants').delete().eq('product_id',productId);
+      await db.from('products').delete().eq('id',productId);
+    }
+    if(mediaPath)await db.storage.from('catalog').remove([mediaPath]);
+    if(userId)await db.auth.admin.deleteUser(userId);
   }
 });

@@ -12,6 +12,7 @@
 - A live Playwright customer journey passed sign in, wishlist, add to bag, unpaid checkout, receipt and order history. The test user, product and order were cleaned up and their absence verified.
 - A live Playwright admin journey passed draft product creation, variant stock creation, validated Storage upload and image attachment. Temporary admin, product and media records were removed and their absence verified. This found and fixed duplicate form label IDs in the variant editor.
 - The Vercel deployment built successfully from GitHub and received the `easy-eyes-ecru.vercel.app` alias. Supabase Auth site URL and the two exact callback URLs were saved and verified in the dashboard.
+- The latest protected deployment serves the home page, shop and catalog API with HTTP 200. The catalog API correctly returns no published products; `robots.txt` disallows crawling and page metadata says `noindex, nofollow`. Supabase Cron run history shows successful hourly executions.
 - The Supabase security advisor no longer reports anonymous execution of privileged functions. It still reports signed-in access to three security-definer functions; these are intended for role checking, authenticated checkout, and admin status transitions. `contact_rate_limits` has no client RLS policy by design.
 - Browser visual inspection at a desktop viewport: home structure inspected and an overlapping placeholder-art label removed.
 

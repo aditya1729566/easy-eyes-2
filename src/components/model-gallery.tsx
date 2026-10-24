@@ -32,15 +32,15 @@ export function ModelGallery() {
     };
 
     const paint = () => {
-      const stride = Math.min(window.innerWidth * (window.innerWidth < 700 ? 0.75 : 0.38), 620);
+      const stride = Math.min(window.innerWidth * (window.innerWidth < 700 ? 0.68 : 0.4), 650);
       cardRefs.current.forEach((card, index) => {
         if (!card) return;
         const distance = index - current;
         const magnitude = Math.abs(distance);
-        const scale = Math.max(0.74, 1 - magnitude * 0.11);
-        card.style.transform = `translate3d(calc(-50% + ${distance * stride}px), -50%, ${-magnitude * 210}px) rotateY(${-distance * 23}deg) scale(${scale})`;
-        card.style.opacity = String(Math.max(0, 1 - magnitude * 0.4));
-        card.style.visibility = magnitude > 2.45 ? 'hidden' : 'visible';
+        const scale = Math.max(0.6, 1 - magnitude * 0.17);
+        card.style.transform = `translate3d(calc(-50% + ${distance * stride}px), calc(-50% + ${magnitude * 20}px), ${-magnitude * 390}px) rotateY(${-distance * 50}deg) rotateZ(${-distance * 3}deg) scale(${scale})`;
+        card.style.opacity = String(Math.max(0, 1 - magnitude * 0.54));
+        card.style.visibility = magnitude > 2.1 ? 'hidden' : 'visible';
         card.style.zIndex = String(100 - Math.round(magnitude * 10));
       });
       markActive(Math.min(lastIndex, Math.max(0, Math.round(current))));

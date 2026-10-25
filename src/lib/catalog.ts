@@ -1,4 +1,5 @@
 import { configured, serverDb } from './supabase';
+import { cache } from 'react';
 export type Product = { id: string; slug: string; name: string; description: string; base_price_minor: number; currency: string; category_id?: string|null; material: string | null; frame_shape: string | null; fit: string | null; featured_order: number | null; specifications?: Record<string,unknown>; product_images?: { storage_path: string; alt_text: string; display_order: number; variant_id?: string|null }[]; product_variants?: { id: string; sku: string; frame_color: string; lens_color: string; price_minor: number; stock_quantity: number }[] };
 export function mediaUrl(path: string | null | undefined, bucket='catalog') {
   if (!path) return null;
@@ -48,10 +49,10 @@ export async function listProducts(params: CatalogFilters = {}) {
   if (error) throw error;
   return { products: (data || []) as Product[], count: count || 0, unavailable: false };
 }
-export async function getProduct(idOrSlug: string) {
+export const getProduct = cache(async (idOrSlug: string) => {
   if (!configured) return null;
   const db = await serverDb();
   const lookup=db.from('products').select('id,slug,name,description,base_price_minor,currency,category_id,material,frame_shape,fit,specifications,product_images(storage_path,alt_text,display_order,variant_id),product_variants(id,sku,frame_color,lens_color,price_minor,stock_quantity)').eq('status','published');
   const { data } = await (/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(idOrSlug)?lookup.eq('id',idOrSlug):lookup.eq('slug',idOrSlug)).maybeSingle();
   return data as Product | null;
-}
+});

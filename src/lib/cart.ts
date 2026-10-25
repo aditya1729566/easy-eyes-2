@@ -3,8 +3,11 @@ import { NextRequest, NextResponse } from 'next/server';
 import { currentUser } from './auth';
 import { privilegedDb } from './supabase';
 const cookieName = 'ee_guest';
+export function hasAuthCookie(request: NextRequest) {
+  return request.cookies.getAll().some(({ name }) => /^sb-[a-z0-9]+-auth-token(?:\.\d+)?$/.test(name));
+}
 export async function cartContext(request: NextRequest) {
-  const user = await currentUser();
+  const user = hasAuthCookie(request) ? await currentUser() : null;
   const db = privilegedDb();
   if (user) {
     let { data: cart } = await db.from('carts').select('id').eq('user_id',user.id).maybeSingle();

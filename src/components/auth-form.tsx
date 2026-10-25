@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { browserDb } from '@/lib/supabase-browser';
+import { clearCartSnapshot } from '@/lib/cart-snapshot';
 
 type Mode = 'login' | 'signup' | 'forgot';
 
@@ -35,6 +36,7 @@ export function AuthForm({ mode }: { mode: Mode }) {
       } else {
         const result = await db.auth.signInWithPassword({ email, password });
         if (result.error) throw result.error;
+        clearCartSnapshot();
         const merge = await fetch('/api/cart/merge', { method: 'POST' });
         if (merge.ok) {
           const payload = await merge.json();

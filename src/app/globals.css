@@ -259,6 +259,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .catalog-pagination { display: flex; justify-content: flex-end; align-items: center; gap: 24px; margin-top: 45px; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; }
 .catalog-pagination span { margin-right: auto; color: var(--graphite); }
 .catalog-pagination a { border-bottom: 1px solid currentColor; padding-bottom: 5px; }
+.bag-line img { object-fit: contain; background: #f6f7f6; }
 
 @media (max-width: 1100px) {
   .archive-collection-info { grid-template-columns: 1fr; }

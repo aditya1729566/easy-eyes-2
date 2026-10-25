@@ -1,0 +1,847 @@
+{
+  "dataset": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset",
+  "revision": "7011dd3ac628040a8885a4b597399409643a9e04",
+  "license": "CC BY 4.0",
+  "images": [
+    {
+      "slug": "noir-001",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/noir-001.jpg",
+      "sourcePath": "train/sunglasses/1/product/spl5096_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/1/product/spl5096_0.jpg"
+    },
+    {
+      "slug": "noir-002",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/noir-002.jpg",
+      "sourcePath": "train/sunglasses/5/product/spl7015_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/5/product/spl7015_0.jpg"
+    },
+    {
+      "slug": "noir-003",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/noir-003.jpg",
+      "sourcePath": "train/sunglasses/10/product/spl7292_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/10/product/spl7292_0.jpg"
+    },
+    {
+      "slug": "noir-004",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/noir-004.jpg",
+      "sourcePath": "train/sunglasses/14/product/spl6061_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/14/product/spl6061_0.jpg"
+    },
+    {
+      "slug": "noir-005",
+      "category": "eyeglasses",
+      "localPath": "/assets/catalog-reference/noir-005.jpg",
+      "sourcePath": "train/eyeglasses/25/product/pl5418_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/eyeglasses/25/product/pl5418_0.jpg"
+    },
+    {
+      "slug": "noir-006",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/noir-006.jpg",
+      "sourcePath": "train/sunglasses/18/product/smt6805_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/18/product/smt6805_0.jpg"
+    },
+    {
+      "slug": "aether-007",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/aether-007.jpg",
+      "sourcePath": "train/sunglasses/24/product/smt6789_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/24/product/smt6789_0.jpg"
+    },
+    {
+      "slug": "aether-008",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/aether-008.jpg",
+      "sourcePath": "train/sunglasses/28/product/spl7294_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/28/product/spl7294_0.jpg"
+    },
+    {
+      "slug": "aether-009",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/aether-009.jpg",
+      "sourcePath": "train/sunglasses/31/product/smt6914_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/31/product/smt6914_0.jpg"
+    },
+    {
+      "slug": "aether-010",
+      "category": "eyeglasses",
+      "localPath": "/assets/catalog-reference/aether-010.jpg",
+      "sourcePath": "train/eyeglasses/78/product/pl6147_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/eyeglasses/78/product/pl6147_0.jpg"
+    },
+    {
+      "slug": "aether-011",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/aether-011.jpg",
+      "sourcePath": "train/sunglasses/36/product/spm0572_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/36/product/spm0572_0.jpg"
+    },
+    {
+      "slug": "aether-012",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/aether-012.jpg",
+      "sourcePath": "train/sunglasses/42/product/spm0615_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/42/product/spm0615_0.jpg"
+    },
+    {
+      "slug": "halo-013",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/halo-013.jpg",
+      "sourcePath": "train/sunglasses/45/product/luspl00490_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/45/product/luspl00490_0.jpg"
+    },
+    {
+      "slug": "halo-014",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/halo-014.jpg",
+      "sourcePath": "train/sunglasses/50/product/luspm00481_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/50/product/luspm00481_0.jpg"
+    },
+    {
+      "slug": "halo-015",
+      "category": "eyeglasses",
+      "localPath": "/assets/catalog-reference/halo-015.jpg",
+      "sourcePath": "train/eyeglasses/146/product/rm3128_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/eyeglasses/146/product/rm3128_0.jpg"
+    },
+    {
+      "slug": "halo-016",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/halo-016.jpg",
+      "sourcePath": "train/sunglasses/54/product/luspl00454_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/54/product/luspl00454_0.jpg"
+    },
+    {
+      "slug": "halo-017",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/halo-017.jpg",
+      "sourcePath": "train/sunglasses/59/product/spm0847_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/59/product/spm0847_0.jpg"
+    },
+    {
+      "slug": "halo-018",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/halo-018.jpg",
+      "sourcePath": "train/sunglasses/64/product/spl6120_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/64/product/spl6120_0.jpg"
+    },
+    {
+      "slug": "axis-019",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/axis-019.jpg",
+      "sourcePath": "train/sunglasses/69/product/spl6651_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/69/product/spl6651_0.jpg"
+    },
+    {
+      "slug": "axis-020",
+      "category": "eyeglasses",
+      "localPath": "/assets/catalog-reference/axis-020.jpg",
+      "sourcePath": "train/eyeglasses/204/product/mt6249_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/eyeglasses/204/product/mt6249_0.jpg"
+    },
+    {
+      "slug": "axis-021",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/axis-021.jpg",
+      "sourcePath": "train/sunglasses/73/product/spln5651_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/73/product/spln5651_0.jpg"
+    },
+    {
+      "slug": "axis-022",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/axis-022.jpg",
+      "sourcePath": "train/sunglasses/77/product/spm0228_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/77/product/spm0228_0.jpg"
+    },
+    {
+      "slug": "axis-023",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/axis-023.jpg",
+      "sourcePath": "train/sunglasses/82/product/spl5737_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/82/product/spl5737_0.jpg"
+    },
+    {
+      "slug": "axis-024",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/axis-024.jpg",
+      "sourcePath": "train/sunglasses/86/product/spl7574_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/86/product/spl7574_0.jpg"
+    },
+    {
+      "slug": "forma-025",
+      "category": "eyeglasses",
+      "localPath": "/assets/catalog-reference/forma-025.jpg",
+      "sourcePath": "train/eyeglasses/257/product/pl5972_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/eyeglasses/257/product/pl5972_0.jpg"
+    },
+    {
+      "slug": "forma-026",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/forma-026.jpg",
+      "sourcePath": "train/sunglasses/90/product/spl6237_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/90/product/spl6237_0.jpg"
+    },
+    {
+      "slug": "forma-027",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/forma-027.jpg",
+      "sourcePath": "train/sunglasses/96/product/spm1241_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/96/product/spm1241_0.jpg"
+    },
+    {
+      "slug": "forma-028",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/forma-028.jpg",
+      "sourcePath": "train/sunglasses/100/product/spl7006_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/100/product/spl7006_0.jpg"
+    },
+    {
+      "slug": "forma-029",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/forma-029.jpg",
+      "sourcePath": "train/sunglasses/106/product/spl8000_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/106/product/spl8000_0.jpg"
+    },
+    {
+      "slug": "forma-030",
+      "category": "eyeglasses",
+      "localPath": "/assets/catalog-reference/forma-030.jpg",
+      "sourcePath": "train/eyeglasses/303/product/pl5991_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/eyeglasses/303/product/pl5991_0.jpg"
+    },
+    {
+      "slug": "vanta-031",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/vanta-031.jpg",
+      "sourcePath": "train/sunglasses/109/product/spl8003_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/109/product/spl8003_0.jpg"
+    },
+    {
+      "slug": "vanta-032",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/vanta-032.jpg",
+      "sourcePath": "train/sunglasses/114/product/spm0208_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/114/product/spm0208_0.jpg"
+    },
+    {
+      "slug": "vanta-033",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/vanta-033.jpg",
+      "sourcePath": "train/sunglasses/119/product/spl6050_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/119/product/spl6050_0.jpg"
+    },
+    {
+      "slug": "vanta-034",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/vanta-034.jpg",
+      "sourcePath": "train/sunglasses/123/product/spl8296_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/123/product/spl8296_0.jpg"
+    },
+    {
+      "slug": "vanta-035",
+      "category": "eyeglasses",
+      "localPath": "/assets/catalog-reference/vanta-035.jpg",
+      "sourcePath": "train/eyeglasses/352/product/pm0547_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/eyeglasses/352/product/pm0547_0.jpg"
+    },
+    {
+      "slug": "vanta-036",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/vanta-036.jpg",
+      "sourcePath": "train/sunglasses/130/product/spl8295_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/130/product/spl8295_0.jpg"
+    },
+    {
+      "slug": "muse-037",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/muse-037.jpg",
+      "sourcePath": "train/sunglasses/136/product/spl7934_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/136/product/spl7934_0.jpg"
+    },
+    {
+      "slug": "muse-038",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/muse-038.jpg",
+      "sourcePath": "train/sunglasses/140/product/smt6976_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/140/product/smt6976_0.jpg"
+    },
+    {
+      "slug": "muse-039",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/muse-039.jpg",
+      "sourcePath": "train/sunglasses/144/product/spm0630_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/144/product/spm0630_0.jpg"
+    },
+    {
+      "slug": "muse-040",
+      "category": "eyeglasses",
+      "localPath": "/assets/catalog-reference/muse-040.jpg",
+      "sourcePath": "train/eyeglasses/401/product/pl6520_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/eyeglasses/401/product/pl6520_0.jpg"
+    },
+    {
+      "slug": "muse-041",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/muse-041.jpg",
+      "sourcePath": "train/sunglasses/151/product/sp0146_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/151/product/sp0146_0.jpg"
+    },
+    {
+      "slug": "muse-042",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/muse-042.jpg",
+      "sourcePath": "train/sunglasses/155/product/spm1234_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/155/product/spm1234_0.jpg"
+    },
+    {
+      "slug": "vector-043",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/vector-043.jpg",
+      "sourcePath": "train/sunglasses/161/product/smt6121_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/161/product/smt6121_0.jpg"
+    },
+    {
+      "slug": "vector-044",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/vector-044.jpg",
+      "sourcePath": "train/sunglasses/167/product/sp0093_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/167/product/sp0093_0.jpg"
+    },
+    {
+      "slug": "vector-045",
+      "category": "eyeglasses",
+      "localPath": "/assets/catalog-reference/vector-045.jpg",
+      "sourcePath": "train/eyeglasses/455/product/pl6774_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/eyeglasses/455/product/pl6774_0.jpg"
+    },
+    {
+      "slug": "vector-046",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/vector-046.jpg",
+      "sourcePath": "train/sunglasses/171/product/lusmt00913_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/171/product/lusmt00913_0.jpg"
+    },
+    {
+      "slug": "vector-047",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/vector-047.jpg",
+      "sourcePath": "train/sunglasses/175/product/spl8950_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/175/product/spl8950_0.jpg"
+    },
+    {
+      "slug": "vector-048",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/vector-048.jpg",
+      "sourcePath": "train/sunglasses/178/product/sp0090_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/178/product/sp0090_0.jpg"
+    },
+    {
+      "slug": "soleil-049",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/soleil-049.jpg",
+      "sourcePath": "train/sunglasses/183/product/sp0127_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/183/product/sp0127_0.jpg"
+    },
+    {
+      "slug": "soleil-050",
+      "category": "eyeglasses",
+      "localPath": "/assets/catalog-reference/soleil-050.jpg",
+      "sourcePath": "train/eyeglasses/503/product/mt5699_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/eyeglasses/503/product/mt5699_0.jpg"
+    },
+    {
+      "slug": "soleil-051",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/soleil-051.jpg",
+      "sourcePath": "train/sunglasses/187/product/smt6692_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/187/product/smt6692_0.jpg"
+    },
+    {
+      "slug": "soleil-052",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/soleil-052.jpg",
+      "sourcePath": "train/sunglasses/190/product/smt6970_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/190/product/smt6970_0.jpg"
+    },
+    {
+      "slug": "soleil-053",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/soleil-053.jpg",
+      "sourcePath": "train/sunglasses/194/product/sp0163_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/194/product/sp0163_0.jpg"
+    },
+    {
+      "slug": "soleil-054",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/soleil-054.jpg",
+      "sourcePath": "train/sunglasses/199/product/spl6865_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/199/product/spl6865_0.jpg"
+    },
+    {
+      "slug": "arc-055",
+      "category": "eyeglasses",
+      "localPath": "/assets/catalog-reference/arc-055.jpg",
+      "sourcePath": "train/eyeglasses/553/product/pl8654_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/eyeglasses/553/product/pl8654_0.jpg"
+    },
+    {
+      "slug": "arc-056",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/arc-056.jpg",
+      "sourcePath": "train/sunglasses/203/product/smt7559_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/203/product/smt7559_0.jpg"
+    },
+    {
+      "slug": "arc-057",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/arc-057.jpg",
+      "sourcePath": "train/sunglasses/206/product/luspl00672_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/206/product/luspl00672_0.jpg"
+    },
+    {
+      "slug": "arc-058",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/arc-058.jpg",
+      "sourcePath": "train/sunglasses/211/product/spl7008_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/211/product/spl7008_0.jpg"
+    },
+    {
+      "slug": "arc-059",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/arc-059.jpg",
+      "sourcePath": "train/sunglasses/216/product/spl9028_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/216/product/spl9028_0.jpg"
+    },
+    {
+      "slug": "arc-060",
+      "category": "eyeglasses",
+      "localPath": "/assets/catalog-reference/arc-060.jpg",
+      "sourcePath": "train/eyeglasses/608/product/mt6445_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/eyeglasses/608/product/mt6445_0.jpg"
+    },
+    {
+      "slug": "echo-061",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/echo-061.jpg",
+      "sourcePath": "train/sunglasses/219/product/smt7399_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/219/product/smt7399_0.jpg"
+    },
+    {
+      "slug": "echo-062",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/echo-062.jpg",
+      "sourcePath": "train/sunglasses/223/product/spl8516_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/223/product/spl8516_0.jpg"
+    },
+    {
+      "slug": "echo-063",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/echo-063.jpg",
+      "sourcePath": "train/sunglasses/229/product/spl7976_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/229/product/spl7976_0.jpg"
+    },
+    {
+      "slug": "echo-064",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/echo-064.jpg",
+      "sourcePath": "train/sunglasses/232/product/smt6933_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/232/product/smt6933_0.jpg"
+    },
+    {
+      "slug": "echo-065",
+      "category": "eyeglasses",
+      "localPath": "/assets/catalog-reference/echo-065.jpg",
+      "sourcePath": "train/eyeglasses/656/product/pl6547_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/eyeglasses/656/product/pl6547_0.jpg"
+    },
+    {
+      "slug": "echo-066",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/echo-066.jpg",
+      "sourcePath": "train/sunglasses/238/product/spm0408_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/238/product/spm0408_0.jpg"
+    },
+    {
+      "slug": "vesper-067",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/vesper-067.jpg",
+      "sourcePath": "train/sunglasses/242/product/smt6744_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/242/product/smt6744_0.jpg"
+    },
+    {
+      "slug": "vesper-068",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/vesper-068.jpg",
+      "sourcePath": "train/sunglasses/249/product/luspl00789_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/249/product/luspl00789_0.jpg"
+    },
+    {
+      "slug": "vesper-069",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/vesper-069.jpg",
+      "sourcePath": "train/sunglasses/252/product/spl7683_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/252/product/spl7683_0.jpg"
+    },
+    {
+      "slug": "vesper-070",
+      "category": "eyeglasses",
+      "localPath": "/assets/catalog-reference/vesper-070.jpg",
+      "sourcePath": "train/eyeglasses/704/product/pl8417_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/eyeglasses/704/product/pl8417_0.jpg"
+    },
+    {
+      "slug": "vesper-071",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/vesper-071.jpg",
+      "sourcePath": "train/sunglasses/256/product/spl9012_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/256/product/spl9012_0.jpg"
+    },
+    {
+      "slug": "vesper-072",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/vesper-072.jpg",
+      "sourcePath": "train/sunglasses/260/product/smt7500_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/260/product/smt7500_0.jpg"
+    },
+    {
+      "slug": "flux-073",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/flux-073.jpg",
+      "sourcePath": "train/sunglasses/264/product/lusmt00486_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/264/product/lusmt00486_0.jpg"
+    },
+    {
+      "slug": "flux-074",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/flux-074.jpg",
+      "sourcePath": "train/sunglasses/269/product/luspl00674_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/269/product/luspl00674_0.jpg"
+    },
+    {
+      "slug": "flux-075",
+      "category": "eyeglasses",
+      "localPath": "/assets/catalog-reference/flux-075.jpg",
+      "sourcePath": "train/eyeglasses/759/product/mts6206_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/eyeglasses/759/product/mts6206_0.jpg"
+    },
+    {
+      "slug": "flux-076",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/flux-076.jpg",
+      "sourcePath": "train/sunglasses/273/product/spl7920_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/273/product/spl7920_0.jpg"
+    },
+    {
+      "slug": "flux-077",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/flux-077.jpg",
+      "sourcePath": "train/sunglasses/278/product/smt7164_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/278/product/smt7164_0.jpg"
+    },
+    {
+      "slug": "flux-078",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/flux-078.jpg",
+      "sourcePath": "train/sunglasses/281/product/luspl00890_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/281/product/luspl00890_0.jpg"
+    },
+    {
+      "slug": "dusk-079",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/dusk-079.jpg",
+      "sourcePath": "train/sunglasses/286/product/luspl00461_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/286/product/luspl00461_0.jpg"
+    },
+    {
+      "slug": "dusk-080",
+      "category": "eyeglasses",
+      "localPath": "/assets/catalog-reference/dusk-080.jpg",
+      "sourcePath": "train/eyeglasses/811/product/pl9010_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/eyeglasses/811/product/pl9010_0.jpg"
+    },
+    {
+      "slug": "dusk-081",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/dusk-081.jpg",
+      "sourcePath": "train/sunglasses/290/product/spl8674_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/290/product/spl8674_0.jpg"
+    },
+    {
+      "slug": "dusk-082",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/dusk-082.jpg",
+      "sourcePath": "train/sunglasses/294/product/luspl00906_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/294/product/luspl00906_0.jpg"
+    },
+    {
+      "slug": "dusk-083",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/dusk-083.jpg",
+      "sourcePath": "train/sunglasses/300/product/spl8756_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/300/product/spl8756_0.jpg"
+    },
+    {
+      "slug": "dusk-084",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/dusk-084.jpg",
+      "sourcePath": "train/sunglasses/308/product/luspl00807_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/308/product/luspl00807_0.jpg"
+    },
+    {
+      "slug": "contour-085",
+      "category": "eyeglasses",
+      "localPath": "/assets/catalog-reference/contour-085.jpg",
+      "sourcePath": "train/eyeglasses/1007/product/pl8924_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/eyeglasses/1007/product/pl8924_0.jpg"
+    },
+    {
+      "slug": "contour-086",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/contour-086.jpg",
+      "sourcePath": "train/sunglasses/313/product/spl9015_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/313/product/spl9015_0.jpg"
+    },
+    {
+      "slug": "contour-087",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/contour-087.jpg",
+      "sourcePath": "train/sunglasses/316/product/spl7694_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/316/product/spl7694_0.jpg"
+    },
+    {
+      "slug": "contour-088",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/contour-088.jpg",
+      "sourcePath": "train/sunglasses/322/product/spm1400_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/322/product/spm1400_0.jpg"
+    },
+    {
+      "slug": "contour-089",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/contour-089.jpg",
+      "sourcePath": "train/sunglasses/327/product/luspl00875_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/327/product/luspl00875_0.jpg"
+    },
+    {
+      "slug": "contour-090",
+      "category": "eyeglasses",
+      "localPath": "/assets/catalog-reference/contour-090.jpg",
+      "sourcePath": "train/eyeglasses/1059/product/lupl00936_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/eyeglasses/1059/product/lupl00936_0.jpg"
+    },
+    {
+      "slug": "mirage-091",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/mirage-091.jpg",
+      "sourcePath": "train/sunglasses/331/product/spl8763_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/331/product/spl8763_0.jpg"
+    },
+    {
+      "slug": "mirage-092",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/mirage-092.jpg",
+      "sourcePath": "train/sunglasses/336/product/spl7583_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/336/product/spl7583_0.jpg"
+    },
+    {
+      "slug": "mirage-093",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/mirage-093.jpg",
+      "sourcePath": "train/sunglasses/343/product/smt6973_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/343/product/smt6973_0.jpg"
+    },
+    {
+      "slug": "mirage-094",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/mirage-094.jpg",
+      "sourcePath": "train/sunglasses/346/product/spm1526_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/346/product/spm1526_0.jpg"
+    },
+    {
+      "slug": "mirage-095",
+      "category": "eyeglasses",
+      "localPath": "/assets/catalog-reference/mirage-095.jpg",
+      "sourcePath": "train/eyeglasses/1108/product/pl8193_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/eyeglasses/1108/product/pl8193_0.jpg"
+    },
+    {
+      "slug": "mirage-096",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/mirage-096.jpg",
+      "sourcePath": "train/sunglasses/353/product/spl8202_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/353/product/spl8202_0.jpg"
+    },
+    {
+      "slug": "monolith-097",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/monolith-097.jpg",
+      "sourcePath": "train/sunglasses/357/product/luspl00935_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/357/product/luspl00935_0.jpg"
+    },
+    {
+      "slug": "monolith-098",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/monolith-098.jpg",
+      "sourcePath": "train/sunglasses/361/product/spl9093_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/361/product/spl9093_0.jpg"
+    },
+    {
+      "slug": "monolith-099",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/monolith-099.jpg",
+      "sourcePath": "train/sunglasses/364/product/spl8870_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/364/product/spl8870_0.jpg"
+    },
+    {
+      "slug": "monolith-100",
+      "category": "eyeglasses",
+      "localPath": "/assets/catalog-reference/monolith-100.jpg",
+      "sourcePath": "train/eyeglasses/1164/product/pl7302_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/eyeglasses/1164/product/pl7302_0.jpg"
+    },
+    {
+      "slug": "monolith-101",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/monolith-101.jpg",
+      "sourcePath": "train/sunglasses/369/product/spl7556_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/369/product/spl7556_0.jpg"
+    },
+    {
+      "slug": "monolith-102",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/monolith-102.jpg",
+      "sourcePath": "train/sunglasses/375/product/spl8980_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/375/product/spl8980_0.jpg"
+    },
+    {
+      "slug": "nova-103",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/nova-103.jpg",
+      "sourcePath": "train/sunglasses/380/product/sp0157_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/380/product/sp0157_0.jpg"
+    },
+    {
+      "slug": "nova-104",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/nova-104.jpg",
+      "sourcePath": "train/sunglasses/385/product/smt7550_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/385/product/smt7550_0.jpg"
+    },
+    {
+      "slug": "nova-105",
+      "category": "eyeglasses",
+      "localPath": "/assets/catalog-reference/nova-105.jpg",
+      "sourcePath": "train/eyeglasses/1219/product/mt7456_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/eyeglasses/1219/product/mt7456_0.jpg"
+    },
+    {
+      "slug": "nova-106",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/nova-106.jpg",
+      "sourcePath": "train/sunglasses/391/product/spm1442_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/391/product/spm1442_0.jpg"
+    },
+    {
+      "slug": "nova-107",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/nova-107.jpg",
+      "sourcePath": "train/sunglasses/396/product/spl8849_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/396/product/spl8849_0.jpg"
+    },
+    {
+      "slug": "nova-108",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/nova-108.jpg",
+      "sourcePath": "train/sunglasses/400/product/luspl00917_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/400/product/luspl00917_0.jpg"
+    },
+    {
+      "slug": "cipher-109",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/cipher-109.jpg",
+      "sourcePath": "train/sunglasses/406/product/spl8863_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/406/product/spl8863_0.jpg"
+    },
+    {
+      "slug": "cipher-110",
+      "category": "eyeglasses",
+      "localPath": "/assets/catalog-reference/cipher-110.jpg",
+      "sourcePath": "train/eyeglasses/1268/product/lupl00755_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/eyeglasses/1268/product/lupl00755_0.jpg"
+    },
+    {
+      "slug": "cipher-111",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/cipher-111.jpg",
+      "sourcePath": "train/sunglasses/410/product/spl8851_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/410/product/spl8851_0.jpg"
+    },
+    {
+      "slug": "cipher-112",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/cipher-112.jpg",
+      "sourcePath": "train/sunglasses/413/product/spl8713_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/413/product/spl8713_0.jpg"
+    },
+    {
+      "slug": "cipher-113",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/cipher-113.jpg",
+      "sourcePath": "train/sunglasses/418/product/sp0159_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/418/product/sp0159_0.jpg"
+    },
+    {
+      "slug": "cipher-114",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/cipher-114.jpg",
+      "sourcePath": "train/sunglasses/424/product/spl9090_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/424/product/spl9090_0.jpg"
+    },
+    {
+      "slug": "eclipse-115",
+      "category": "eyeglasses",
+      "localPath": "/assets/catalog-reference/eclipse-115.jpg",
+      "sourcePath": "train/eyeglasses/1322/product/pl8461_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/eyeglasses/1322/product/pl8461_0.jpg"
+    },
+    {
+      "slug": "eclipse-116",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/eclipse-116.jpg",
+      "sourcePath": "train/sunglasses/429/product/spl8867_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/429/product/spl8867_0.jpg"
+    },
+    {
+      "slug": "eclipse-117",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/eclipse-117.jpg",
+      "sourcePath": "train/sunglasses/432/product/spl8859_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/432/product/spl8859_0.jpg"
+    },
+    {
+      "slug": "eclipse-118",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/eclipse-118.jpg",
+      "sourcePath": "train/sunglasses/438/product/spl8741_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/438/product/spl8741_0.jpg"
+    },
+    {
+      "slug": "eclipse-119",
+      "category": "sunglasses",
+      "localPath": "/assets/catalog-reference/eclipse-119.jpg",
+      "sourcePath": "train/sunglasses/444/product/smt7553_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/sunglasses/444/product/smt7553_0.jpg"
+    },
+    {
+      "slug": "eclipse-120",
+      "category": "eyeglasses",
+      "localPath": "/assets/catalog-reference/eclipse-120.jpg",
+      "sourcePath": "train/eyeglasses/1372/product/mt7591_0.jpg",
+      "sourceUrl": "https://huggingface.co/datasets/shravya11/eyeglasses-dataset/resolve/7011dd3ac628040a8885a4b597399409643a9e04/train/eyeglasses/1372/product/mt7591_0.jpg"
+    }
+  ]
+}

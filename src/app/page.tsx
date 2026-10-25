@@ -42,7 +42,7 @@ async function FeaturedProducts() {
   const catalog = await listProducts();
   if (!catalog.products.length) return null;
   return <section id="featured" className="featured section-wrap">
-    <div className="section-heading"><p className="eyebrow">The collection</p><h2>Shapes that change <em>the whole picture.</em></h2><Link className="line-link" href="/shop">View all frames <ArrowUpRight size={18} /></Link></div>
+    <div className="section-heading"><p className="eyebrow">The collection</p><h2>Frames worth<br />a <em>second look.</em></h2><Link className="line-link" href="/shop">View all frames <ArrowUpRight size={18} /></Link></div>
     <div className="product-grid">{catalog.products.slice(0, 3).map(product => <ProductCard key={product.id} product={product} />)}</div>
   </section>;
 }

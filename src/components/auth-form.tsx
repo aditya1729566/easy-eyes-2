@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { ArrowUpRight } from 'lucide-react';
 import { useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { browserDb } from '@/lib/supabase-browser';
@@ -8,6 +9,15 @@ import { clearCartSnapshot, refreshCartSnapshot } from '@/lib/cart-snapshot';
 import { safeAuthNext } from '@/lib/auth-next';
 
 type Mode = 'login' | 'signup' | 'forgot';
+
+function GoogleMark() {
+  return <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" focusable="false">
+    <path fill="#4285F4" d="M21.35 12.25c0-.75-.07-1.47-.2-2.16H12v4.09h5.23a4.47 4.47 0 0 1-1.94 2.93v2.42h3.14c1.84-1.7 2.92-4.2 2.92-7.28Z" />
+    <path fill="#34A853" d="M12 21.75c2.64 0 4.85-.88 6.47-2.39l-3.14-2.42c-.87.58-1.98.93-3.33.93a5.99 5.99 0 0 1-5.63-4.15H3.14v2.5A9.75 9.75 0 0 0 12 21.75Z" />
+    <path fill="#FBBC05" d="M6.37 13.72a5.87 5.87 0 0 1 0-3.44v-2.5H3.14a9.75 9.75 0 0 0 0 8.44l3.23-2.5Z" />
+    <path fill="#EA4335" d="M12 6.13c1.44 0 2.72.49 3.74 1.46l2.81-2.81A9.38 9.38 0 0 0 12 2.25a9.75 9.75 0 0 0-8.86 5.53l3.23 2.5A5.99 5.99 0 0 1 12 6.13Z" />
+  </svg>;
+}
 
 export function AuthForm({ mode }: { mode: Mode }) {
   const router = useRouter();
@@ -95,13 +105,24 @@ export function AuthForm({ mode }: { mode: Mode }) {
     }
   }
 
-  return <div className="page-shell"><p className="eyebrow">Easy Eyes / Account</p><h1 className="page-title">{mode === 'login' ? 'Welcome back.' : mode === 'signup' ? 'Join Easy Eyes.' : 'Reset password.'}</h1><form className="form" onSubmit={submit}>
+  return <div className="page-shell auth-page"><p className="eyebrow">Easy Eyes / Account</p><h1 className="page-title">{mode === 'login' ? 'Welcome back.' : mode === 'signup' ? 'Join Easy Eyes.' : 'Reset password.'}</h1><div className="auth-flow">
+    {mode !== 'forgot' && <div className="oauth-entry">
+      <button type="button" className="google-sign-in" onClick={() => void signInWithGoogle()} disabled={busy || googleBusy}>
+        <span className="google-sign-in-icon"><GoogleMark /></span>
+        <span className="google-sign-in-label">{googleBusy ? 'Connecting to Google…' : 'Continue with Google'}</span>
+        <ArrowUpRight className="google-sign-in-arrow" size={18} strokeWidth={1.5} aria-hidden="true" />
+      </button>
+      {googleError && <span role="alert" className="form-error">{googleError}</span>}
+      <p className="auth-divider"><span>or use your email</span></p>
+    </div>}
+    <form className="form" onSubmit={submit}>
     {mode === 'signup' && <div className="field"><label htmlFor="name">Full name</label><input id="name" name="name" autoComplete="name" required /></div>}
     <div className="field"><label htmlFor="email">Email</label><input id="email" name="email" type="email" autoComplete="email" required /></div>
     {mode !== 'forgot' && <div className="field"><label htmlFor="password">Password</label><input id="password" name="password" type="password" autoComplete={mode === 'login' ? 'current-password' : 'new-password'} minLength={8} required /></div>}
     {error && <p role="alert" className="form-error">{error}</p>}
     {success && <p role="status" className="form-success">{success} {mode === 'login' && <Link href="/cart">Go to bag</Link>}</p>}
     <button className="button-dark" disabled={busy}>{busy ? 'Working…' : mode === 'login' ? 'Sign in' : mode === 'signup' ? 'Create account' : 'Send reset link'}</button>
-    <p>{mode === 'login' ? <><Link href="/signup">Create an account</Link> · <Link href="/forgot-password">Forgot password?</Link></> : <Link href="/login">Back to sign in</Link>}</p>
-  </form>{mode !== 'forgot' && <div className="oauth-entry"><p>Or continue with</p><button type="button" className="google-sign-in" onClick={() => void signInWithGoogle()} disabled={busy || googleBusy}>{googleBusy ? 'Connecting to Google…' : 'Google'}</button>{googleError && <span role="alert" className="form-error">{googleError}</span>}</div>}</div>;
+    <p className="auth-alt-links">{mode === 'login' ? <><Link href="/signup">Create an account</Link><Link href="/forgot-password">Forgot password?</Link></> : <Link href="/login">Back to sign in</Link>}</p>
+    </form>
+  </div></div>;
 }

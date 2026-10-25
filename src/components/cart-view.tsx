@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useEffect, useState, useSyncExternalStore } from 'react';
 import { money } from '@/config/site';
 import { brandAssets } from '@/config/brand-assets';
-import { readCartSnapshot, serverCartSnapshot, subscribeCartSnapshot, writeCartSnapshot } from '@/lib/cart-snapshot';
+import { refreshCartSnapshot, serverCartSnapshot, subscribeCartSnapshot, readCartSnapshot, writeCartSnapshot } from '@/lib/cart-snapshot';
 
 function imageUrl(path?: string) {
   if (!path) return brandAssets.productFallback;
@@ -21,18 +21,11 @@ export function CartView() {
   const [message, setMessage] = useState('');
 
   useEffect(() => {
-    const controller = new AbortController();
-    const snapshotAtStart = readCartSnapshot();
-    fetch('/api/cart', { signal: controller.signal })
-      .then(async response => {
-        const body = await response.json();
-        if (!response.ok) throw new Error(body.error?.message || 'Bag unavailable');
-        const fresh = body.data || [];
-        if (readCartSnapshot() === snapshotAtStart) writeCartSnapshot(fresh);
-      })
-      .catch(error => { if (!controller.signal.aborted) setMessage(error instanceof Error ? error.message : 'Bag unavailable'); })
-      .finally(() => { if (!controller.signal.aborted) setFetchDone(true); });
-    return () => controller.abort();
+    let active = true;
+    refreshCartSnapshot()
+      .catch(error => { if (active) setMessage(error instanceof Error ? error.message : 'Bag unavailable'); })
+      .finally(() => { if (active) setFetchDone(true); });
+    return () => { active = false; };
   }, []);
 
   async function change(id: string, quantity: number) {

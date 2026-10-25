@@ -10,7 +10,8 @@ export function ProductCard({product}:{product:Product}) {
   const second=images[1];
   const frontSrc=mediaUrl(front?.storage_path)||brandAssets.productFallback;
   const secondSrc=mediaUrl(second?.storage_path);
-  return <article className="product-card"><Link href={`/products/${product.slug}`} className="product-image">
+  const reference=front?.storage_path?.startsWith('/assets/catalog-reference/');
+  return <article className="product-card"><Link href={`/products/${product.slug}`} className={`product-image${reference?' product-image--reference':''}`}>
     <Image src={frontSrc} alt={front?.alt_text||`Illustrative image slot for ${product.name}`} fill sizes="(max-width: 640px) 50vw, (max-width: 1000px) 50vw, 33vw"/>
     {secondSrc&&<Image className="product-image-secondary" src={secondSrc} alt="" aria-hidden fill sizes="(max-width: 640px) 50vw, (max-width: 1000px) 50vw, 33vw"/>}
     <span className="product-view">View frame <span aria-hidden>↗</span></span>

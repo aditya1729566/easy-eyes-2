@@ -11,6 +11,24 @@ const collectionDetails = [
   { slug: 'optical-studies', name: 'Optical Studies', description: 'An evolving archive of optical and crossover frame concepts.' },
 ];
 const slugify = value => value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+const displayPrice = 2_500_000;
+const openingLines = [
+  'A sharper way to enter the room.',
+  'For the moments that call for a second look.',
+  'A little friction against the ordinary.',
+  'The kind of frame that changes the whole outfit.',
+  'Built around presence, not permission.',
+  'An everyday essential with a louder point of view.',
+  'A clean line with an unmistakable edge.',
+  'Quiet confidence, turned all the way up.',
+];
+const collectionLines = {
+  'Objects of Light': 'Catch the light and hold the gaze.',
+  'After Dark': 'The mood stays bold after the lights go down.',
+  'New Perspectives': 'See the familiar from a different angle.',
+  'Optical Studies': 'Clear thinking with an unruly streak.',
+};
+const editorialDescription = item => `${item.name} — ${openingLines[(item.id - 1) % openingLines.length]} ${collectionLines[item.collection]}`;
 
 if (products.length !== 120 || images.size !== 120 ||
   new Set(products.map(item => item.slug)).size !== 120 ||
@@ -35,25 +53,18 @@ function checked(result, operation) {
   return result.data;
 }
 
-if (publish) {
-  const rows = checked(await db.from('collections').select('id,slug').in('slug', collectionDetails.map(item => item.slug)), 'Read collections');
-  if (rows.length !== 4) throw new Error('Expected all four collections before publishing.');
-  const memberships = checked(await db.from('collection_products').select('collection_id').in('collection_id', rows.map(item => item.id)), 'Read memberships');
-  if (memberships.length !== 120) throw new Error(`Expected 120 collection memberships; found ${memberships.length}.`);
-  checked(await db.from('collections').update({ published: true }).in('id', rows.map(item => item.id)), 'Publish collections');
-  console.log('Published four design-study collections.');
-  process.exit(0);
-}
-
 const slugs = products.map(item => item.slug);
 const existing = checked(await db.from('products').select('slug,status,specifications').in('slug', slugs), 'Check product collisions');
-if (existing.some(item => item.status !== 'draft' || item.specifications?.catalog_source !== 'easy-eyes-120-product-catalog')) {
+if (existing.some(item => item.specifications?.catalog_source !== 'easy-eyes-120-product-catalog')) {
   throw new Error('A source slug belongs to another product; refusing to replace it.');
 }
+if (prepare && existing.some(item => item.status === 'published')) throw new Error('Published catalog exists; refusing to revert it to drafts.');
+if (publish && existing.length !== 120) throw new Error('Prepare all 120 source products before publishing.');
 const existingCollections = checked(await db.from('collections').select('slug,description').in('slug', collectionDetails.map(item => item.slug)), 'Check collection collisions');
 if (existingCollections.some(item => !item.description.startsWith('Design-study archive:'))) {
   throw new Error('A source collection slug belongs to another collection; refusing to replace it.');
 }
+if (publish && existingCollections.length !== 4) throw new Error('Prepare all four collections before publishing.');
 
 const categories = checked(await db.from('categories').select('id,slug').in('slug', ['sunglasses', 'optical']), 'Read categories');
 for (const slug of ['sunglasses', 'optical']) {
@@ -74,19 +85,31 @@ const collectionRows = collectionDetails.map((item, index) => {
     display_order: index + 1,
   };
 });
-const collections = checked(await db.from('collections').upsert(collectionRows, { onConflict: 'slug' }).select('id,slug'), 'Import collections');
+const collections = publish
+  ? checked(await db.from('collections').select('id,slug').in('slug', collectionDetails.map(item => item.slug)), 'Read collections')
+  : checked(await db.from('collections').upsert(collectionRows, { onConflict: 'slug' }).select('id,slug'), 'Import collections');
 const collectionIds = new Map(collections.map(item => [item.slug, item.id]));
+if (publish) {
+  const memberships = checked(await db.from('collection_products').select('collection_id').in('collection_id', collections.map(item => item.id)), 'Read memberships');
+  if (memberships.length !== 120) throw new Error(`Expected 120 collection memberships; found ${memberships.length}.`);
+}
 
 const rows = products.map(item => ({
   slug: item.slug,
   name: item.name,
-  description: item.description,
+  description: publish ? editorialDescription(item) : item.description,
   category_id: categoryIds.get(item.product_type === 'optical' ? 'optical' : 'sunglasses'),
-  base_price_minor: item.price_paise,
-  material: item.material,
-  frame_shape: item.shape,
-  fit: item.frame_style,
-  specifications: {
+  base_price_minor: publish ? displayPrice : item.price_paise,
+  material: publish ? null : item.material,
+  frame_shape: publish ? null : item.shape,
+  fit: publish ? null : item.frame_style,
+  specifications: publish ? {
+    catalog_source: 'easy-eyes-120-product-catalog',
+    is_demo: true,
+    image_is_reference: true,
+    original_sku: item.sku,
+    product_type: item.product_type,
+  } : {
     catalog_source: 'easy-eyes-120-product-catalog',
     is_demo: true,
     image_is_reference: true,
@@ -98,7 +121,7 @@ const rows = products.map(item => ({
     frame_width_mm: item.frame_width_mm,
     tags: item.tags,
   },
-  status: 'draft',
+  status: publish ? 'published' : 'draft',
   featured_order: item.id,
 }));
 const imported = checked(await db.from('products').upsert(rows, { onConflict: 'slug' }).select('id,slug'), 'Import draft products');
@@ -108,11 +131,11 @@ const productIds = new Map(imported.map(item => [item.slug, item.id]));
 const variants = products.map(item => ({
   product_id: productIds.get(item.slug),
   sku: `${item.sku}-STD`,
-  frame_color: item.frame_color,
-  lens_color: item.lens_color,
-  price_minor: item.price_paise,
-  stock_quantity: 0,
-  active: false,
+  frame_color: publish ? 'As pictured' : item.frame_color,
+  lens_color: publish ? 'As pictured' : item.lens_color,
+  price_minor: publish ? displayPrice : item.price_paise,
+  stock_quantity: publish ? 24 : 0,
+  active: publish,
 }));
 checked(await db.from('product_variants').upsert(variants, { onConflict: 'sku' }), 'Import inactive variants');
 
@@ -139,4 +162,9 @@ const memberships = products.map(item => ({
 }));
 checked(await db.from('collection_products').upsert(memberships, { onConflict: 'collection_id,product_id' }), 'Import collection memberships');
 
-console.log(`Prepared ${collections.length} hidden concept collections, ${imported.length} draft products, ${variants.length} inactive zero-stock variants and ${newImages.length} new reference images.`);
+if (publish) {
+  checked(await db.from('collections').update({ published: true }).in('id', collections.map(item => item.id)), 'Publish collections');
+  console.log(`Published ${imported.length} frames at ₹25,000 in ${collections.length} collections.`);
+} else {
+  console.log(`Prepared ${collections.length} hidden concept collections, ${imported.length} draft products, ${variants.length} inactive zero-stock variants and ${newImages.length} new reference images.`);
+}

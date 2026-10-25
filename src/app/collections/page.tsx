@@ -4,7 +4,8 @@ import type { Metadata } from 'next';
 import { connection } from 'next/server';
 import { ArrowUpRight } from 'lucide-react';
 import { configured, privilegedDb, serverDb } from '@/lib/supabase';
-import { mediaUrl } from '@/lib/catalog';
+import { listProducts, mediaUrl } from '@/lib/catalog';
+import { ProductCard } from '@/components/product-card';
 import { brandAssets } from '@/config/brand-assets';
 import { isStudySlug, studyCounts, studyPreviewEnabled } from '@/lib/study-catalog';
 
@@ -30,7 +31,10 @@ export default async function Collections() {
     if (error) throw error;
     collections = (data || []).filter(row => row.published || isStudySlug(row.slug));
   }
-  const counts = await studyCounts(collections.filter(row => isStudySlug(row.slug)).map(row => row.id));
+  const [counts, featured] = await Promise.all([
+    studyCounts(collections.filter(row => isStudySlug(row.slug)).map(row => row.id)),
+    listProducts({ page: 1 }),
+  ]);
 
   return <div className="archive-page page-shell">
     <div className="archive-intro">
@@ -64,6 +68,7 @@ export default async function Collections() {
       })}
     </div> : <div className="empty-collection"><p>Collections will appear when published.</p><Link className="line-link" href="/shop">Browse all frames</Link></div>}
 
-    <div className="archive-disclosure"><p><strong>Design archive.</strong> These names and specifications are concepts, with no retail stock. The glasses photographs show separate reference frames and do not depict the named concepts.</p><p>Reference imagery: <a href="https://huggingface.co/datasets/shravya11/eyeglasses-dataset">shravya11/eyeglasses-dataset</a> · <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Images are resized for display.</p></div>
+    {featured.products.length > 0 && <section className="archive-featured" aria-labelledby="archive-featured-title"><div className="archive-featured-heading"><div><p className="eyebrow">Your next perspective</p><h2 id="archive-featured-title">Meet the frames.</h2></div><Link href="/shop" className="line-link">Explore all {featured.count} frames <ArrowUpRight size={17} /></Link></div><div className="product-grid">{featured.products.slice(0, 6).map(product => <ProductCard key={product.id} product={product} />)}</div></section>}
+    <div className="archive-disclosure"><p><strong>Image notes.</strong> Glasses photographs are visual references for the named Easy Eyes frames.</p><p>Photography: <a href="https://huggingface.co/datasets/shravya11/eyeglasses-dataset">shravya11/eyeglasses-dataset</a> · <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Images are resized for display.</p></div>
   </div>;
 }

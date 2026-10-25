@@ -9,11 +9,13 @@ export type StudyFrame = {
   id: string;
   slug: string;
   name: string;
-  material: string | null;
+  description: string;
+  price: number;
   shape: string | null;
   type: 'sunglasses' | 'optical';
   image: string;
   imageAlt: string;
+  published: boolean;
 };
 
 export function isStudySlug(slug: string): slug is typeof studySlugs[number] {
@@ -45,8 +47,8 @@ export async function getStudyCollection(slug: string) {
   if (!ids.length) return { collection, frames: [] as StudyFrame[] };
 
   const { data: products, error: productError } = await db.from('products')
-    .select('id,slug,name,material,frame_shape,status,specifications,product_images(storage_path,alt_text,kind,display_order)')
-    .in('id', ids).eq('status', 'draft');
+    .select('id,slug,name,description,base_price_minor,frame_shape,status,specifications,product_images(storage_path,alt_text,kind,display_order)')
+    .in('id', ids).in('status', ['draft', 'published']);
   if (productError) throw productError;
   const byId = new Map((products || []).map(product => [product.id, product]));
   const frames = (memberships || []).flatMap(row => {
@@ -60,11 +62,13 @@ export async function getStudyCollection(slug: string) {
       id: product.id,
       slug: product.slug,
       name: product.name,
-      material: product.material,
+      description: product.description,
+      price: product.base_price_minor,
       shape: product.frame_shape,
       type: details.product_type === 'optical' ? 'optical' : 'sunglasses',
       image: image.storage_path,
       imageAlt: image.alt_text,
+      published: product.status === 'published',
     } satisfies StudyFrame];
   });
   return { collection, frames };

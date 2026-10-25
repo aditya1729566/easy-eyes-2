@@ -12,10 +12,12 @@ node --env-file=.env.local scripts/import-catalog-demo.mjs --prepare
 
 `--prepare` creates or updates four hidden collections, 120 draft products, 120 inactive variants with zero stock, product reference image rows and collection memberships. It refuses to replace unrelated rows sharing those slugs. Existing public product listings and checkout cannot sell these entries. The collection pages read these specific drafts on the server using the catalog source marker; no server key reaches the browser. Set `CATALOG_STUDIES_PREVIEW=1` locally to preview hidden collections.
 
-After the site code and image assets are deployed and verified, publish just the four collections:
+After the site code and image assets are deployed and verified, publish the 120 frames and four collections:
 
 ```sh
 node --env-file=.env.local scripts/import-catalog-demo.mjs --publish
 ```
 
-The archive then appears at `/collections`. It provides type, shape and text filters plus pagination. It has no product or purchase links. Replace reference photos with approved images of the actual named frames, verify prices and specifications, and explicitly publish product records before treating any entry as merchandise.
+`--publish` rewrites the product descriptions as original Easy Eyes editorial copy, sets every displayed price to ₹25,000, removes unverified material and measurement fields, enables each variant with a small demo quantity, and publishes the products and collections. It refuses to replace unrelated rows. Do not run `--prepare` again after publishing: the script rejects reverting published entries to drafts.
+
+The archive at `/collections` provides text and type filters plus pagination. Product cards link to full product pages; `/shop` lists all 120 and `/sunglasses` lists the 96 sun styles. The photos remain visual references, not exact images of the named concepts. The site credits the image dataset on listing and product pages. The checkout collects no payment and stores an unpaid order request. Before using this site for actual retail, replace the reference photos with approved product photos, verify physical specifications, and replace demo inventory with real stock.

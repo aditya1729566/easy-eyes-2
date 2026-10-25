@@ -32,7 +32,7 @@ export function ProductActions({productId,basePrice,variants}:{productId:string;
     }catch{setMessage('Could not save this frame.');}
   }
   return <div className="pdp-actions"><p className="price">{money(active?.price_minor??basePrice)}</p>{active&&<p className="muted">SKU {active.sku} · {active.stock_quantity?`${active.stock_quantity} available`:'Sold out'}</p>}
-    <div className="field"><label htmlFor="variant">Frame and lens</label><select id="variant" value={variant} onChange={event=>{setVariant(event.target.value);setQuantity(1);}}>{variants.map(v=><option key={v.id} value={v.id}>{v.frame_color} / {v.lens_color} — {v.stock_quantity?'In stock':'Sold out'}</option>)}</select></div>
+    {variants.length>1&&<div className="field"><label htmlFor="variant">Frame and lens</label><select id="variant" value={variant} onChange={event=>{setVariant(event.target.value);setQuantity(1);}}>{variants.map(v=><option key={v.id} value={v.id}>{v.frame_color} / {v.lens_color} — {v.stock_quantity?'In stock':'Sold out'}</option>)}</select></div>}
     <div className="field"><label htmlFor="quantity">Quantity</label><input id="quantity" type="number" min="1" max={Math.min(20,active?.stock_quantity||1)} value={quantity} onChange={event=>setQuantity(Number(event.target.value))}/></div>
     <button type="button" className="button-dark" onClick={add} disabled={busy||!active||active.stock_quantity<quantity||quantity<1}>{busy?'Adding…':active?.stock_quantity?'Add to bag':'Out of stock'}</button>
     <button type="button" className="line-link" onClick={save}>Save this frame</button><p role="status">{message}</p>

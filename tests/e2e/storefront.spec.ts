@@ -1,6 +1,6 @@
 import {test,expect} from '@playwright/test';
 test('editorial storefront and model gallery',async({page})=>{await page.goto('/');await expect(page.getByRole('heading',{name:/look closer/i})).toBeVisible();await page.getByRole('link',{name:/explore the looks/i}).click();await expect(page).toHaveURL(/#the-looks$/);await expect(page.getByRole('heading',{name:/a frame changes everything/i})).toBeVisible();await expect(page.locator('.model-gallery-card')).toHaveCount(9);await expect(page.locator('.model-gallery-card.is-active')).toContainText('₹25,000')});
-test('mobile menu remains operable',async({page})=>{await page.setViewportSize({width:375,height:812});await page.goto('/');await expect.poll(()=>page.locator('.hero-film').first().evaluate(video=>(video as HTMLVideoElement).currentSrc)).toContain('/assets/campaign/film-01-mobile.mp4');await page.getByRole('button',{name:'Open menu'}).click();await expect(page.getByRole('navigation',{name:'Mobile navigation'})).toBeVisible();await page.getByRole('navigation',{name:'Mobile navigation'}).getByRole('link',{name:'Collections'}).click();await expect(page).toHaveURL(/\/collections/)});
+test('mobile menu remains operable',async({page})=>{await page.setViewportSize({width:375,height:812});await page.goto('/');await expect.poll(()=>page.locator('.hero-film').first().evaluate(video=>(video as HTMLVideoElement).currentSrc)).toContain('/assets/campaign/film-01-mobile.mp4');const controls=await page.locator('.hero-film-controls').boundingBox();expect(controls).not.toBeNull();expect(controls!.y+controls!.height).toBeLessThanOrEqual(814);await page.getByRole('button',{name:'Open menu'}).click();await expect(page.getByRole('navigation',{name:'Mobile navigation'})).toBeVisible();await page.getByRole('navigation',{name:'Mobile navigation'}).getByRole('link',{name:'Collections'}).click();await expect(page).toHaveURL(/\/collections/)});
 test('hero films play in order and can be selected manually',async({page})=>{
   await page.goto('/');
   await expect(page.locator('.hero-film')).toHaveCount(4);
@@ -8,20 +8,21 @@ test('hero films play in order and can be selected manually',async({page})=>{
   await expect(page.locator('.hero-media').locator('div')).toHaveCount(0);
   await page.waitForFunction(()=>{
     const header=getComputedStyle(document.querySelector('.site-header')!);
-    const media=document.querySelector('.hero-media')!.getBoundingClientRect();
-    return header.position==='absolute' && header.color==='rgb(0, 0, 0)' && header.backgroundColor==='rgba(0, 0, 0, 0)' && Math.abs(media.bottom-innerHeight*.9)<2;
+    const hero=document.querySelector('.hero')!.getBoundingClientRect();
+    return header.position==='absolute' && header.color==='rgb(0, 0, 0)' && header.backgroundColor==='rgba(0, 0, 0, 0)' && Math.abs(hero.bottom-innerHeight)<2;
   });
   const layout=await page.evaluate(()=>{
     const header=document.querySelector('.site-header')!.getBoundingClientRect();
     const media=document.querySelector('.hero-media')!.getBoundingClientRect();
     const controls=document.querySelector('.hero-film-controls')!.getBoundingClientRect();
-    return {headerBottom:header.bottom,mediaTop:media.top,mediaBottom:media.bottom,controlsTop:controls.top,viewportHeight:innerHeight};
+    return {headerBottom:header.bottom,mediaTop:media.top,mediaBottom:media.bottom,controlsTop:controls.top,controlsBottom:controls.bottom,viewportHeight:innerHeight};
   });
   expect(layout.mediaTop).toBe(0);
   expect(layout.headerBottom).toBeLessThan(layout.mediaBottom);
-  expect(layout.mediaBottom).toBeGreaterThanOrEqual(layout.viewportHeight*.9-2);
-  expect(layout.mediaBottom).toBeLessThanOrEqual(layout.viewportHeight*.9+2);
+  expect(layout.mediaBottom).toBeGreaterThan(layout.viewportHeight*.75);
   expect(layout.controlsTop).toBeGreaterThanOrEqual(layout.mediaBottom-1);
+  expect(layout.controlsBottom).toBeLessThanOrEqual(layout.viewportHeight+2);
+  expect(layout.controlsBottom).toBeGreaterThanOrEqual(layout.viewportHeight-2);
   await expect(page.locator('.hero-film.is-active source:last-child')).toHaveAttribute('src','/assets/campaign/film-01.mp4');
   await expect(page.locator('.hero-film').first()).toHaveJSProperty('paused',false);
   await page.evaluate(()=>{

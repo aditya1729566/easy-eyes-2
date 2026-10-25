@@ -87,12 +87,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .mobile-menu a { font-family: var(--font-display), Arial, sans-serif; font-size: 34px; font-weight: 700; }
 
 /* The film remains unobstructed; its caption and playback controls live below it. */
-.hero { height: auto; min-height: 0; overflow: visible; background: var(--paper); color: var(--ink); }
-.hero-media { position: relative; inset: auto; z-index: 0; width: 100%; height: 90svh; min-height: 0; overflow: hidden; isolation: isolate; background: #d5dddd; }
+.hero { height: 100svh; min-height: 0; display: flex; flex-direction: column; overflow: visible; background: var(--paper); color: var(--ink); }
+.hero-media { position: relative; inset: auto; z-index: 0; flex: 1 1 auto; width: 100%; height: auto; min-height: 0; overflow: hidden; isolation: isolate; background: #d5dddd; }
 .hero-media > .hero-film { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; opacity: 0; transform: scale(1.025); transition: opacity .75s ease, transform 8s linear; }
 .hero-media > .hero-film.is-outgoing { z-index: 1; opacity: 1; transform: scale(1); }
 .hero-media > .hero-film.is-active { z-index: 2; opacity: 1; transform: scale(1); }
-.hero-film-controls { position: relative; left: auto; bottom: auto; z-index: 1; transform: none; display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 24px; width: 100%; height: 20svh; min-height: 145px; padding: 17px clamp(20px, 4vw, 64px); border: 0; border-bottom: 1px solid var(--line); border-radius: 0; background: var(--paper); color: var(--ink); backdrop-filter: none; white-space: normal; }
+.hero-film-controls { position: relative; left: auto; bottom: auto; z-index: 1; transform: none; display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; flex: 0 0 clamp(118px, 13svh, 140px); gap: 24px; width: 100%; height: auto; min-height: 0; padding: 12px clamp(20px, 4vw, 64px); border: 0; border-bottom: 1px solid var(--line); border-radius: 0; background: var(--paper); color: var(--ink); backdrop-filter: none; white-space: normal; }
 .hero-rail-copy .eyebrow { display: block; margin-bottom: 8px; color: var(--blue); }
 .hero-rail-copy h1 { margin: 0; font: 700 clamp(26px, 2.6vw, 42px)/1 var(--font-display), Arial, sans-serif; letter-spacing: -.065em; }
 .hero-rail-copy h1 span { color: var(--blue); }
@@ -163,7 +163,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 @media (max-width: 650px) {
   .hero-media { min-height: 0; }
-  .hero-film-controls { grid-template-columns: 1fr auto; grid-template-rows: auto auto; gap: 10px; min-height: 150px; height: 20svh; padding: 15px 20px; }
+  .hero-film-controls { grid-template-columns: 1fr auto; grid-template-rows: auto auto; flex-basis: 130px; gap: 6px; min-height: 0; height: auto; padding: 9px 20px; }
   .hero-rail-copy .eyebrow { font-size: 9px; margin-bottom: 4px; }
   .hero-rail-copy h1 { font-size: 26px; }
   .hero-rail-action { display: block; }

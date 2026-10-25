@@ -7,13 +7,14 @@ type SearchParams = Promise<Record<string, string | string[] | undefined>>;
 export async function CatalogList({ title, category, searchParams }: { title: string; category?: string; searchParams: SearchParams }) {
   const params = await searchParams;
   const get = (key: string) => typeof params[key] === 'string' ? params[key] as string : undefined;
+  const price = (key: string) => { const value = Number(get(key)); return Number.isFinite(value) && value >= 0 ? Math.round(value * 100) : undefined; };
   const requestedPage = Number(get('page') || 1);
   const page = Number.isFinite(requestedPage) ? Math.max(1, Math.floor(requestedPage)) : 1;
   const filters = {
     q: get('q'), sort: get('sort'), page, category, shape: get('shape'), material: get('material'),
     frameColor: get('frame'), lensColor: get('lens'), available: get('available') === 'true',
-    minPrice: get('min') ? Math.round(Number(get('min')) * 100) : undefined,
-    maxPrice: get('max') ? Math.round(Number(get('max')) * 100) : undefined,
+    minPrice: get('min') ? price('min') : undefined,
+    maxPrice: get('max') ? price('max') : undefined,
   };
   const [options, catalog] = await Promise.all([filterOptions(), listProducts(filters)]);
   const pathname = category ? '/sunglasses' : title === 'Find a frame' ? '/search' : '/shop';
@@ -42,7 +43,7 @@ export async function CatalogList({ title, category, searchParams }: { title: st
       <button className="button-dark" type="submit">Apply filters</button><Link href={pathname} className="line-link">Clear</Link>
     </form>
     <p className="eyebrow">{catalog.count} frames</p>
-    {catalog.products.length ? <div className="product-grid">{catalog.products.map(product => <ProductCard key={product.id} product={product} />)}</div> : <div className="empty-collection"><p>{catalog.unavailable ? 'Connect the catalog to begin.' : 'No frames match this view.'}</p><Link className="line-link" href={pathname}>Clear filters →</Link></div>}
+    {catalog.products.length ? <div className="product-grid">{catalog.products.map((product, index) => <ProductCard key={product.id} product={product} eager={index === 0} />)}</div> : <div className="empty-collection"><p>{catalog.unavailable ? 'Connect the catalog to begin.' : 'No frames match this view.'}</p><Link className="line-link" href={pathname}>Clear filters →</Link></div>}
     {catalog.count > 12 && <nav className="catalog-pagination" aria-label="Catalog pages"><span>Page {page} of {pages}</span>{page > 1 && <Link href={pageHref(page - 1)}>← Previous</Link>}{page < pages && <Link href={pageHref(page + 1)}>Next →</Link>}</nav>}
     {hasReferenceImages && <p className="reference-credit">Glasses photography is used as a visual reference. Source: <a href="https://huggingface.co/datasets/shravya11/eyeglasses-dataset">eyeglasses-dataset</a> · <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>}
   </div>;

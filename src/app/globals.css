@@ -88,7 +88,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 /* The film remains unobstructed; its caption and playback controls live below it. */
 .hero { height: auto; min-height: 0; overflow: visible; background: var(--paper); color: var(--ink); }
-.hero-media { position: relative; inset: auto; z-index: 0; width: 100%; height: 80svh; min-height: 0; overflow: hidden; isolation: isolate; background: #d5dddd; }
+.hero-media { position: relative; inset: auto; z-index: 0; width: 100%; height: 90svh; min-height: 0; overflow: hidden; isolation: isolate; background: #d5dddd; }
 .hero-media > .hero-film { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; opacity: 0; transform: scale(1.025); transition: opacity .75s ease, transform 8s linear; }
 .hero-media > .hero-film.is-outgoing { z-index: 1; opacity: 1; transform: scale(1); }
 .hero-media > .hero-film.is-active { z-index: 2; opacity: 1; transform: scale(1); }

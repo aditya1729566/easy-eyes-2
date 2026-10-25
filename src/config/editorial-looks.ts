@@ -14,8 +14,8 @@ export const editorialLooks: EditorialLook[] = [
 
 export const editorialPriceMinor = 2_500_000;
 export const filmSources = [
-  '/assets/campaign/film-01.mp4',
-  '/assets/campaign/film-02.mp4',
-  '/assets/campaign/film-03.mp4',
-  '/assets/campaign/film-04.mp4',
+  { desktop: '/assets/campaign/film-01.mp4', mobile: '/assets/campaign/film-01-mobile.mp4' },
+  { desktop: '/assets/campaign/film-02.mp4', mobile: '/assets/campaign/film-02-mobile.mp4' },
+  { desktop: '/assets/campaign/film-03.mp4', mobile: '/assets/campaign/film-03-mobile.mp4' },
+  { desktop: '/assets/campaign/film-04.mp4', mobile: '/assets/campaign/film-04-mobile.mp4' },
 ] as const;

@@ -123,7 +123,7 @@ export function ModelGallery() {
               aria-hidden={activeIndex !== index}
             >
               <div className="model-gallery-photo">
-                <Image src={look.image} alt={look.alt} fill sizes="(max-width: 700px) 80vw, 42vw" priority={index === 0} />
+                <Image src={look.image} alt={look.alt} fill sizes="(max-width: 700px) 80vw, 42vw" />
                 {look.frameImage && <div className="model-gallery-frame"><Image src={look.frameImage} alt={`Glasses for look ${index + 1}`} fill sizes="180px" /></div>}
               </div>
               <div className="model-gallery-caption">

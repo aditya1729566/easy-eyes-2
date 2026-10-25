@@ -1,20 +1,15 @@
 'use client';
 
-import Link from 'next/link';
-import { ArrowUpRight, Pause, Play } from 'lucide-react';
-import { useEffect, useRef, useState } from 'react';
+import { Pause, Play } from 'lucide-react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { filmSources } from '@/config/editorial-looks';
 
 type HeroFilmsProps = {
-  campaign: {
-    title: string;
-    subtitle: string;
-    cta_href: string | null;
-    cta_label: string | null;
-  } | null;
+  railTitle: ReactNode;
+  railAction: ReactNode;
 };
 
-export function HeroFilms({ campaign }: HeroFilmsProps) {
+export function HeroFilms({ railTitle, railAction }: HeroFilmsProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const videosRef = useRef<(HTMLVideoElement | null)[]>([]);
   const activeRef = useRef(0);
@@ -124,27 +119,34 @@ export function HeroFilms({ campaign }: HeroFilmsProps) {
     if (!next) videosRef.current.forEach(video => video?.pause());
   };
 
+  const warmNextFilm = (index: number, video: HTMLVideoElement) => {
+    if (index !== activeRef.current || !Number.isFinite(video.duration) || video.duration - video.currentTime > 4) return;
+    const next = videosRef.current[(index + 1) % filmSources.length];
+    if (next?.preload === 'none') next.preload = 'auto';
+  };
+
   return <>
     <div className="hero-media" ref={containerRef}>
       {filmSources.map((source, index) => (
         <video
-          key={source}
+          key={source.desktop}
           ref={node => { videosRef.current[index] = node; }}
           className={`hero-film${activeIndex === index ? ' is-active' : ''}${outgoingIndex === index ? ' is-outgoing' : ''}`}
-          src={source}
           muted
           playsInline
-          preload={index === 0 ? 'auto' : 'metadata'}
+          preload={index === 0 ? 'auto' : 'none'}
+          poster={index === 0 ? '/assets/campaign/film-01-poster.webp' : undefined}
+          onTimeUpdate={event => warmNextFilm(index, event.currentTarget)}
           onEnded={() => { if (index === activeRef.current) activate((index + 1) % filmSources.length); }}
           aria-hidden="true"
-        />
+        >
+          <source media="(max-width: 650px)" src={source.mobile} type="video/mp4" />
+          <source src={source.desktop} type="video/mp4" />
+        </video>
       ))}
     </div>
     <div className="hero-film-controls" role="group" aria-label="Campaign films">
-      <div className="hero-rail-copy">
-        <span className="eyebrow">{campaign?.title || 'Easy Eyes / Film series'}</span>
-        <h1 id="hero-title">Look closer<span>.</span></h1>
-      </div>
+      <div className="hero-rail-copy">{railTitle}</div>
       <div className="hero-film-switcher">
         <span>Select a film</span>
         {filmSources.map((_, index) => (
@@ -161,10 +163,7 @@ export function HeroFilms({ campaign }: HeroFilmsProps) {
           {playing ? <Pause size={17} /> : <Play size={17} />}
         </button>
       </div>
-      <div className="hero-rail-action">
-        <p>{campaign?.subtitle || 'A new point of view, in motion.'}</p>
-        <Link href={campaign?.cta_href || '#the-looks'} className="line-link">{campaign?.cta_label || 'Explore the looks'} <ArrowUpRight size={18} /></Link>
-      </div>
+      <div className="hero-rail-action">{railAction}</div>
     </div>
   </>;
 }

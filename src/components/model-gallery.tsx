@@ -112,7 +112,7 @@ export function ModelGallery() {
         <div className="model-gallery-heading">
           <p className="eyebrow">Easy Eyes / The looks</p>
           <h2 id="model-gallery-title">A frame changes <em>everything.</em></h2>
-          <p>Nine looks, each with a different point of view. Scroll to explore the collection.</p>
+          <p>Ten looks, each with a different point of view. Scroll to explore the collection.</p>
         </div>
         <div className="model-gallery-cards" role="group" aria-label="Eyewear looks">
           {editorialLooks.map((look, index) => (

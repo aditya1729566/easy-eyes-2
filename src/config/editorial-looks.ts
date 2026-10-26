@@ -6,7 +6,7 @@ export const editorialLooks: EditorialLook[] = [
   { image: '/assets/models/cutout/look-03.png', alt: 'Dark-haired model in black wearing delicate gold rimless frames' },
   { image: '/assets/models/cutout/look-04.png', alt: 'Short-haired model in a leather jacket wearing narrow tinted frames' },
   { image: '/assets/models/cutout/look-05.png', alt: 'Model in a navy knit wearing compact black optical frames' },
-  { image: '/assets/models/cutout/look-10-waist.png', alt: 'Short-haired model in an ivory shirt wearing clear rectangular frames' },
+  { image: '/assets/models/cutout/look-10-pink.png', alt: 'Short-haired model in a blush satin dress wearing clear rectangular frames' },
   { image: '/assets/models/cutout/look-06.png', alt: 'Red-haired model in a sheer ivory top wearing slim tinted metal frames' },
   { image: '/assets/models/cutout/look-07.png', alt: 'Short-haired model in a dark one-shoulder look wearing angular black frames' },
   { image: '/assets/models/cutout/look-08.png', alt: 'Blonde model in an ivory top wearing narrow silver optical frames' },
